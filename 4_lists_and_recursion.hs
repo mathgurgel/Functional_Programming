@@ -1,5 +1,15 @@
 -- Defina a função minList que retorna o menor inteiro de uma lista de números fornecida como entrada.
 
+minList :: [Int] -> Int
+minList [] = error "empty list"
+minList (x : []) = x
+minList (x : y : [])
+    | x < y = x
+    | otherwise = y
+minList (x : y : xs)
+    | x < y = minList (x : xs)
+    | otherwise = minList (y : xs)
+
 
 -- Implemente a função andList que produz a conjunção de uma lista de booleanos fornecida como entrada.
 
