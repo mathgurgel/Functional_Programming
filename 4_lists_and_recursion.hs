@@ -20,8 +20,15 @@ andList (x : xs)
     | x == False = False
     | otherwise = andList xs
 
+
 -- Implemente a função orList que produz a disjunção de uma lista de booleanos fornecida como entrada.
 
+orList :: [Bool] -> Bool
+orList [] = error "empty list"
+orList (x : []) = x
+orList (x : xs)
+    | x == True = True
+    | otherwise = orList xs
 
 -- Implemente a função indexOf que, a partir de um inteiro x e uma lista de inteiros xs, retorna a posição de x na lista xs.
 -- Caso x não pertença a lista, o valor -1 deve ser retornado.
