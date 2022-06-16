@@ -13,6 +13,12 @@ minList (x : y : xs)
 
 -- Implemente a função andList que produz a conjunção de uma lista de booleanos fornecida como entrada.
 
+andList :: [Bool] -> Bool
+andList [] = error "empty list"
+andList (x : []) = x
+andList (x : xs)
+    | x == False = False
+    | otherwise = andList xs
 
 -- Implemente a função orList que produz a disjunção de uma lista de booleanos fornecida como entrada.
 
