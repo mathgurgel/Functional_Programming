@@ -34,19 +34,6 @@ orList (x : xs)
 -- Implemente a função indexOf que, a partir de um inteiro x e uma lista de inteiros xs, retorna a posição de x na lista xs.
 -- Caso x não pertença a lista, o valor -1 deve ser retornado.
 
-{--
-    io 42 [9, 3, 42, 4, 2, 90, 70] length = 7
-
-    io 42 (9 : [3, 42, 4, 2, 90, 70]) length = 6
-        9 /= 42
-        > io 42 [3, 42, 4, 2, 90, 70]
-        > io 42 (3 : [42, 4, 2, 90, 70]) length = 5
-        > 3 /= 42
-          > io 42 [42, 4, 2, 90, 70]
-          > io 42 (42 : [4, 2, 90, 70]) length = 4
-          > 42 == 42
---}
-
 indexOf :: Int -> [Int] -> Int
 indexOf _ [] = -1
 indexOf n (x : [])
@@ -66,5 +53,11 @@ indexOf n xs
             | x == n = length xs
             | otherwise = tailListSize n xs
 
+
 -- Implemente a função removeAll que, a partir de um inteiro x e uma lista de inteiros xs, remove todas as ocorrências de x da lista xs.
 
+removeAll :: Int -> [Int] -> [Int]
+removeAll _ [] = []
+removeAll n (x : xs)
+    | n == x = removeAll n xs
+    | otherwise = x : (removeAll n xs)
