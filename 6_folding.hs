@@ -27,7 +27,8 @@ takeWhile' p = foldr (\x acc -> if (p x) then (x : acc) else []) []
 -}
 
 all1 :: (a -> Bool) -> [a] -> Bool
-all1 p [] = True
+all1 _ [] = error "Empty List"
+all1 p (x : []) = p x
 all1 p (x : xs)
     | p x = True && (all1 p xs)
     | otherwise = False
