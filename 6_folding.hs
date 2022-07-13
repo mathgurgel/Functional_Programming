@@ -36,3 +36,17 @@ all1 p (x : xs)
 
 all2 :: (a -> Bool) -> [a] -> Bool
 all2 p = foldr (\x acc -> if (p x) then (True && acc) else False) True
+
+
+
+{-
+    Implemente a função concatMap de tipo:
+
+        concatMap :: (a -> [b]) -> [a] -> [b]
+
+    Usando recursão e foldr.
+-}
+
+concatMapR :: (a -> [b]) -> [a] -> [b]
+concatMapR _ [] = []
+concatMapR f (x : xs) = (f x) ++ (concatMapR f xs)
