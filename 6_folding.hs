@@ -50,3 +50,7 @@ all2 p = foldr (\x acc -> if (p x) then (True && acc) else False) True
 concatMapR :: (a -> [b]) -> [a] -> [b]
 concatMapR _ [] = []
 concatMapR f (x : xs) = (f x) ++ (concatMapR f xs)
+
+
+concatMapF :: (a -> [b]) -> [a] -> [b]
+concatMapF f = foldr (\x acc -> f x ++ acc) []
