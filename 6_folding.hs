@@ -15,6 +15,7 @@ takeWhile' :: (a -> Bool) -> [a] -> [a]
 takeWhile' p = foldr (\x acc -> if (p x) then (x : acc) else []) []
 
 
+
 {-
     A função all determina se todos os elementos de uma lista satisfazem um predicado. Seu tipo é:
 
@@ -26,7 +27,11 @@ takeWhile' p = foldr (\x acc -> if (p x) then (x : acc) else []) []
 -}
 
 all1 :: (a -> Bool) -> [a] -> Bool
-all1 p [] = False
+all1 p [] = True
 all1 p (x : xs)
     | p x = True && (all1 p xs)
     | otherwise = False
+
+
+all2 :: (a -> Bool) -> [a] -> Bool
+all2 p = foldr (\x acc -> if (p x) then (True && acc) else False) True
