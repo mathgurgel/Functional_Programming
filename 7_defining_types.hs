@@ -33,3 +33,17 @@ bst_n_leaves (INode x lst rst) = (bst_n_leaves lst) + (bst_n_leaves rst)
 
 -- Desenvolva uma função que a partir de uma lista de clientes, retorne uma lista contendo todos os clientes que desejam
 -- receber mensagens de ofertas.
+
+type Name = String
+type Surname = String
+type Send_Offer = Bool
+
+data Client = Client {
+    name :: Name,
+    surname :: Surname,
+    send_offer :: Send_Offer
+} deriving (Show)
+
+
+offer_list :: [Client] -> [Client]
+offer_list = filter send_offer
