@@ -24,11 +24,16 @@ data Person
     , age  :: Int
     }
 
-capitalize = map toLower
+lowercase = map toLower
 
 instance Eq Person where
     (==) :: Person -> Person -> Bool
-    (Person name1 _) == (Person name2 _) = (capitalize name1 == capitalize name2)
+    (Person name1 _) == (Person name2 _) = (lowercase name1 == lowercase name2)
 
     (/=) :: Person -> Person -> Bool
     p1 /= p2 = not (p1 == p2)
+
+
+-- Implemente uma instância de Show para Person de forma que o resultado da conversão para string de um valor de tipo Person
+-- exiba apenas o campo name deste registro.
+
