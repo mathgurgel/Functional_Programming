@@ -1,5 +1,7 @@
 {-# LANGUAGE InstanceSigs #-}
 
+import Data.Char
+
 
 -- Implemente uma instância de Eq para o tipo Vec3.
 
@@ -11,3 +13,22 @@ instance Eq Vec3 where
 
     (/=) :: Vec3 -> Vec3 -> Bool
     v1 /= v2 = not (v1 == v2)
+
+
+
+-- Implemente uma instância de Eq para o tipo Person que considere duas pessoas iguais se essas possuírem o mesmo nome.
+
+data Person
+  = Person {
+      name :: String
+    , age  :: Int
+    }
+
+capitalize = map toLower
+
+instance Eq Person where
+    (==) :: Person -> Person -> Bool
+    (Person name1 _) == (Person name2 _) = (capitalize name1 == capitalize name2)
+
+    (/=) :: Person -> Person -> Bool
+    p1 /= p2 = not (p1 == p2)
