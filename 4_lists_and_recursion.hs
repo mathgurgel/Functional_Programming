@@ -80,3 +80,23 @@ halveEvensRec [] = []
 halveEvensRec (x : xs)
     | x `mod` 2 == 0 = (x `div` 2) : halveEvensRec xs
     | otherwise      = halveEvensRec xs
+
+
+
+{-
+    Escreva a função
+
+        inRange :: Int -> Int -> [Int] -> [Int]
+
+    que retorna todos os números da lista de entrada que estão na faixa especificada pelos dois primeiros argumentos (inclusive).
+-}
+
+inRange :: Int -> Int -> [Int] -> [Int]
+inRange x y zs = [n | n <- zs, n >= x && n <= y]
+
+
+inRangeRec :: Int -> Int -> [Int] -> [Int]
+inRangeRec _ _ [] = []
+inRangeRec x y (z : zs)
+    | z >= x && z <= y = z : (inRangeRec x y zs)
+    | otherwise        = inRangeRec x y zs
