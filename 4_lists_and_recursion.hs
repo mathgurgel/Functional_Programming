@@ -61,3 +61,22 @@ removeAll _ [] = []
 removeAll n (x : xs)
     | n == x = removeAll n xs
     | otherwise = x : (removeAll n xs)
+
+
+{-
+    Escreva a função:
+
+        halveEvens :: [Int] -> [Int]
+
+    que retorna a metade de cada número par da lista.
+-}
+
+halveEvens :: [Int] -> [Int]
+halveEvens xs = [x `div` 2 | x <- xs, x `mod` 2 == 0]
+
+
+halveEvensRec :: [Int] -> [Int]
+halveEvensRec [] = []
+halveEvensRec (x : xs)
+    | x `mod` 2 == 0 = (x `div` 2) : halveEvensRec xs
+    | otherwise      = halveEvensRec xs
