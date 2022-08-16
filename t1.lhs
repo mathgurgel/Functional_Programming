@@ -85,12 +85,15 @@ Solução:
 
 
 4. (Valor: 5,0 pts). Considere os tipos de dados a seguir:
-data Task = Task String Int
-data Project = Project [Task]
+
+> data Task = Task String Int
+> data Project = Project [Task]
+
 O tipo Task representa tarefas formadas por uma descrição (valor de tipo String)
 e o tempo de duração de uma tarefa (valor de tipo Int). Por sua vez, o tipo
 Project denota um projeto e este é formado por uma lista de tarefas. Faça o
 que se pede:
+
 a) (Valor: 1,0 pt). Desenvolva a função
     validTask :: Task -> Bool
 que determina se uma tarefa é ou não válida. Dizemos que uma tarefa é válida
@@ -101,7 +104,10 @@ satisfazer os seguintes testes:
 
 Solução:
 
-
+> validTask :: Task -> Bool
+> validTask (Task desc time)
+>   | time > 0  = True
+>   | otherwise = False
 
 
 b) (Valor: 2,0 pts). Desenvolva a função
