@@ -105,7 +105,7 @@ satisfazer os seguintes testes:
 Solução:
 
 > validTask :: Task -> Bool
-> validTask (Task desc time)
+> validTask (Task _ time)
 >   | time > 0  = True
 >   | otherwise = False
 
