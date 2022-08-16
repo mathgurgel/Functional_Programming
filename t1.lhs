@@ -1,3 +1,5 @@
+> import Data.Char
+
 Questões
 1. (Valor 1,0 pt.) Desenvolva a função
     count :: (a -> Bool) -> [a] -> Int
@@ -68,6 +70,17 @@ na biblioteca padrão de Haskell:
 
 Solução:
 
+> capitalize :: String -> String
+> capitalize "" = ""
+> capitalize xs = concatString $ map capitalize' (words xs)
+>     where
+>         capitalize' (x : xs)
+>             | isLetter x = (toUpper x) : xs
+>             | otherwise  = x : xs
+>       
+>         concatString [] = []
+>         concatString (x : []) = x
+>         concatString (x : xs) = x ++ " " ++ (concatString xs)
 
 
 
