@@ -61,3 +61,46 @@ removeAll _ [] = []
 removeAll n (x : xs)
     | n == x = removeAll n xs
     | otherwise = x : (removeAll n xs)
+
+
+{-
+    Escreva a função:
+
+        halveEvens :: [Int] -> [Int]
+
+    que retorna a metade de cada número par da lista.
+-}
+
+halveEvens :: [Int] -> [Int]
+halveEvens xs = [x `div` 2 | x <- xs, x `mod` 2 == 0]
+
+
+halveEvensRec :: [Int] -> [Int]
+halveEvensRec [] = []
+halveEvensRec (x : xs)
+    | x `mod` 2 == 0 = (x `div` 2) : halveEvensRec xs
+    | otherwise      = halveEvensRec xs
+
+
+halveEvensHOF :: [Int] -> [Int]
+halveEvensHOF xs = map (`div` 2) (filter (`mod` 2 == 0) xs)
+
+
+
+{-
+    Escreva a função
+
+        inRange :: Int -> Int -> [Int] -> [Int]
+
+    que retorna todos os números da lista de entrada que estão na faixa especificada pelos dois primeiros argumentos (inclusive).
+-}
+
+inRange :: Int -> Int -> [Int] -> [Int]
+inRange x y zs = [n | n <- zs, n >= x && n <= y]
+
+
+inRangeRec :: Int -> Int -> [Int] -> [Int]
+inRangeRec _ _ [] = []
+inRangeRec x y (z : zs)
+    | z >= x && z <= y = z : (inRangeRec x y zs)
+    | otherwise        = inRangeRec x y zs

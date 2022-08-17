@@ -46,3 +46,13 @@ withoutPrimes' xs = filter (not . isPrime) xs
                 divisors n d
                     | n `mod` d == 0 = d : divisors n (d - 1)
                     | otherwise = divisors n (d - 1)
+
+
+withoutPrimes'' :: [Int] -> [Int]
+withoutPrimes'' = filter (not . isPrime)
+    where
+        isPrime x
+            | (length divisors) == 2 = True
+            | otherwise              = False
+            where
+                divisors x = [n | n <- [1 .. x], x `mod` n == 0]
