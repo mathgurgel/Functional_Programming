@@ -52,7 +52,7 @@ withoutPrimes'' :: [Int] -> [Int]
 withoutPrimes'' = filter (not . isPrime)
     where
         isPrime x
-            | (length divisors) == 2 = True
+            | (length $ divisors x) == 2 = True
             | otherwise              = False
             where
                 divisors x = [n | n <- [1 .. x], x `mod` n == 0]
