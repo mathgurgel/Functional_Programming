@@ -53,6 +53,6 @@ withoutPrimes'' = filter (not . isPrime)
     where
         isPrime x
             | (length $ divisors x) == 2 = True
-            | otherwise              = False
+            | otherwise                  = False
             where
                 divisors x = [n | n <- [1 .. x], x `mod` n == 0]
