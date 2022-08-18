@@ -139,3 +139,6 @@ Solução:
 > totalTimeR :: Project -> Int
 > totalTimeR (Project []) = 0
 > totalTimeR (Project ((Task _ time) : ps)) = time + totalTime (Project ps)
+
+> totalTime :: Project -> Int
+> totalTime (Project p) = foldr (+) 0 (map (\(Task _ time) -> time) p)
