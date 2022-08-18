@@ -82,6 +82,10 @@ halveEvensRec (x : xs)
     | otherwise      = halveEvensRec xs
 
 
+halveEvensHOF :: [Int] -> [Int]
+halveEvensHOF xs = map (`div` 2) (filter (\x -> x `mod` 2 == 0) xs)
+
+
 
 {-
     Escreva a função
