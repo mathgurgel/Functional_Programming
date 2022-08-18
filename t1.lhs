@@ -121,7 +121,8 @@ implementação deve satisfazer os seguintes testes:
 
 Solução:
 
-
+> validProject :: Project -> Bool
+> validProject (Project p) = foldr (&&) True (map validTask p)
 
 
 c) (Valor: 2,0 pts). Desenvolva a função
