@@ -135,3 +135,7 @@ das tarefas que o compõe. Sua implementação deve satisfazer os seguintes test
                        , Task "tarefa 2" 20]) == 30
 
 Solução:
+
+> totalTimeR :: Project -> Int
+> totalTimeR (Project []) = 0
+> totalTimeR (Project ((Task _ time) : ps)) = time + totalTime (Project ps)
