@@ -54,3 +54,29 @@ concatMapR f (x : xs) = (f x) ++ (concatMapR f xs)
 
 concatMapF :: (a -> [b]) -> [a] -> [b]
 concatMapF f = foldr (\x acc -> f x ++ acc) []
+
+
+
+{-
+    Defina a funcao segments :: (a -> Bool) -> [a] -> [[a]] que, dado um predicado p e uma lista l,
+    divide essa lista em segmentos que satisfazem o predicado p. Por exemplo:
+        segments (>=0) [1,2,3,-1,4,-2,-3,5] B [[1,2,3],[4],[5]]
+-}
+
+-- segments :: (a -> Bool) -> [a] -> [[a]]
+-- segments _ [] = []
+-- segments p xs = 
+
+
+
+{-
+    Defina cada uma das funcoes a seguir, usando foldr e foldl:
+        elem :: a -> [a] -> Bool, que determina se um valor  ́e uma elemento de uma lista.
+        remdups :: Eq a => [a] -> [a] que remove da lista elementos duplicados adjacentes.
+-}
+
+elem' :: Eq a => a -> [a] -> Bool
+elem' x = foldr (\e acc -> if(e == x) then True else acc) False
+
+elem'' :: Eq a => a -> [a] -> Bool
+elem'' x = foldl (\acc e -> if(e == x) then True else acc) False
